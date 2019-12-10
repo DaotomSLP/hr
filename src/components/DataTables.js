@@ -1,5 +1,6 @@
 import React from "react";
 import DataTable from "react-data-table-component";
+import Forms from "./Forms";
 
 const data = [
   { id: 1, name: "Conan the Barbarian", date: "1982", price: "10000" },
@@ -28,14 +29,16 @@ const columns = [
 
 const DataTables = () => {
   return (
-    <DataTable
-      title="ລາຍຈ່າຍ"
-      columns={columns}
-      data={data}
-      defaultSortField="title"
-      pagination
-      selectableRows
-    />
+    <div>
+      <DataTable
+        title="ລາຍຈ່າຍ"
+        columns={columns}
+        data={data}
+        defaultSortField="title"
+        pagination
+        selectableRows
+      />
+    </div>
   );
 };
 

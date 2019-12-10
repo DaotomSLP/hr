@@ -1,4 +1,4 @@
-import Home from "./Home";
-import Page from "./Page";
+import Payment from "./Payment";
+import Income from "./Income";
 
-export { Home, Page };
+export { Payment, Income };

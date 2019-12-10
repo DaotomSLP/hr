@@ -10,10 +10,10 @@ const Navbarr = () => {
           IBudget
         </NavLink>
         <Nav>
-          <NavLink to="/home" className="nav-link nav-item">
+          <NavLink to="/payment" className="nav-link nav-item">
             ລາຍຈ່າຍ
           </NavLink>
-          <NavLink to="/page" className="nav-link nav-item">
+          <NavLink to="/income" className="nav-link nav-item">
             ເຫຼືອໃນບັນຊີ
           </NavLink>
         </Nav>
