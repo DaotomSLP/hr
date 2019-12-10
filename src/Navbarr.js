@@ -1,0 +1,25 @@
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+
+const Navbarr = () => {
+  return (
+    <div>
+      <Navbar bg="dark" variant="dark">
+        <NavLink exact to="/" className="navbar-brand">
+          IBudget
+        </NavLink>
+        <Nav>
+          <NavLink to="/home" className="nav-link nav-item">
+            ລາຍຈ່າຍ
+          </NavLink>
+          <NavLink to="/page" className="nav-link nav-item">
+            ເຫຼືອໃນບັນຊີ
+          </NavLink>
+        </Nav>
+      </Navbar>
+    </div>
+  );
+};
+
+export default Navbarr;
