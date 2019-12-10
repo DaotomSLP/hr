@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.lao-font {
+  font-family: NotoSansLao-Medium;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,6 +16,12 @@
   }
 }
 
+@font-face {
+  font-family: "NotoSansLao-Medium";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../src/fonts/NotoSansLao-Medium.ttf") format("truetype");
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

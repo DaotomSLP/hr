@@ -5,7 +5,7 @@ import Routerr from "./Routerr";
 
 function App() {
   return (
-    <div>
+    <div className="lao-font">
       <Navbarr />
       <Routerr />
     </div>

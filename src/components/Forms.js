@@ -22,7 +22,7 @@ export default function Forms(props) {
       <Button variant="primary px-5 mt-4 mx-4 mb-1" onClick={handleShow}>
         ເພີ່ມ
       </Button>
-      <Modal show={Mshow} onHide={handleClose}>
+      <Modal className="lao-font" show={Mshow} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>ເພີ່ມລາຍຈ່າຍ</Modal.Title>
         </Modal.Header>
