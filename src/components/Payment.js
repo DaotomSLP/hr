@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import DataTables from "./DataTables";
 import Forms from "./Forms";
 import { Card } from "react-bootstrap";
+import useForm from "react-hook-form";
 
 const data = [
   { id: 1, name: "ເຂົ້າປຽກ", date: "1982", price: "10000" },
@@ -10,9 +11,23 @@ const data = [
 ];
 
 const Payment = () => {
+  const { register, handleSubmit } = useForm();
+  const [modal, setModal] = useState(false);
+  const Submit = values => {
+    console.log(values);
+    setModal(false);
+    console.log(modal);
+  };
   return (
     <Card className="mt-3 shadow-sm" variant="">
-      <Forms name="ລາຍການລາຍຈ່າຍ" price="ລາຄາ" />
+      <Forms
+        name="ລາຍການລາຍຈ່າຍ"
+        price="ລາຄາ"
+        register={register}
+        handleSubmit={handleSubmit}
+        Submit={Submit}
+        modal={modal}
+      />
       <DataTables name="ລາຍຈ່າຍ" data={data} />
     </Card>
   );

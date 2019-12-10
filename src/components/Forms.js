@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import useForm from "react-hook-form";
 import "../App.css";
 
 export default function Forms(props) {
-  const { register, handleSubmit } = useForm();
-  const [Mshow, setMshow] = useState(false);
+  const [Mshow, setMshow] = useState(props.modal);
+  console.log(Mshow);
   const handleShow = () => {
     setMshow(true);
   };
   const handleClose = () => {
-    setMshow(false);
-  };
-  const Submit = values => {
-    console.log(values);
     setMshow(false);
   };
 
@@ -27,14 +22,14 @@ export default function Forms(props) {
           <Modal.Title>ເພີ່ມລາຍຈ່າຍ</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit(Submit)} id="form1">
+          <Form onSubmit={props.handleSubmit(props.Submit)} id="form1">
             <Form.Group>
               <Form.Label>{props.name} :</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
                 placeholder={props.name}
-                ref={register}
+                ref={props.register}
               />
             </Form.Group>
             <Form.Group>
@@ -43,7 +38,7 @@ export default function Forms(props) {
                 type="number"
                 name="price"
                 placeholder={props.price}
-                ref={register}
+                ref={props.register}
               />
             </Form.Group>
           </Form>
