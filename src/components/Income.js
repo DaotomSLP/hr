@@ -1,15 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DataTables from "./DataTables";
 import Forms from "./Forms";
 import { Card } from "react-bootstrap";
 import useForm from "react-hook-form";
+import firebases from "../firebase";
 
-const data = [
-  { id: 1, name: "salary 10", date: "1982", price: "10000" },
-  { id: 2, name: "salary 11", date: "1982", price: "10000" },
-  { id: 2, name: "salary 12", date: "1982", price: "10000" }
-];
+const usePay = () => {
+  const [Pay, setPay] = useState([]);
+
+  useEffect(() => {
+    firebases
+      .firestore()
+      .collection("Income")
+      .onSnapshot(snapshot => {
+        console.log(snapshot);
+        const newPay = snapshot.docs.map(doc => ({
+          // id: doc.data.id
+          ...doc.data()
+          // date: doc.date
+        }));
+        setPay(newPay);
+      });
+  }, []);
+  return Pay;
+};
 const Page = () => {
+  const data = usePay().map(index => ({
+    id: index.id,
+    name: index.name,
+    price: index.amount,
+    date: index.date.toDate().toLocaleDateString()
+  }));
   const { register, handleSubmit } = useForm();
   const [modal, setModal] = useState(false);
   const Submit = values => {

@@ -9,12 +9,12 @@ const Navbarr = () => {
         <NavLink exact to="/" className="navbar-brand">
           IBudget
         </NavLink>
-        <Nav ml-auto>
+        <Nav>
           <NavLink to="/payment" className="nav-link nav-item">
             ລາຍຈ່າຍ
           </NavLink>
           <NavLink to="/income" className="nav-link nav-item">
-            ເຫຼືອໃນບັນຊີ
+            ລາຍຮັບ
           </NavLink>
         </Nav>
       </Navbar>

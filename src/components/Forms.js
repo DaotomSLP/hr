@@ -4,7 +4,6 @@ import "../App.css";
 
 export default function Forms(props) {
   const [Mshow, setMshow] = useState(props.modal);
-  console.log(Mshow);
   const handleShow = () => {
     setMshow(true);
   };
