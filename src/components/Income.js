@@ -13,7 +13,6 @@ const usePay = () => {
       .firestore()
       .collection("Income")
       .onSnapshot(snapshot => {
-        console.log(snapshot);
         const newPay = snapshot.docs.map(doc => ({
           // id: doc.data.id
           ...doc.data()
@@ -24,34 +23,43 @@ const usePay = () => {
   }, []);
   return Pay;
 };
-const Page = () => {
+
+const Income = () => {
   const data = usePay().map(index => ({
-    id: index.id,
     name: index.name,
-    price: index.amount,
+    price: index.price,
     date: index.date.toDate().toLocaleDateString()
   }));
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
   const [modal, setModal] = useState(false);
   const Submit = values => {
-    console.log(values);
-    setModal(false);
+    var date = new Date();
+    firebases
+      .firestore()
+      .collection("Income")
+      .add({ ...values, date })
+      .then(() => {
+        alert("ບັນທຶກສຳເລັດ");
+        reset({
+          name: "",
+          price: ""
+        });
+      });
   };
   return (
-    <div>
-      <Card className="mt-3 shadow-sm" variant="">
-        <Forms
-          name="ລາຍການລາຍຮັບ"
-          price="ຈຳນວນເງິນ"
-          register={register}
-          handleSubmit={handleSubmit}
-          Submit={Submit}
-          modal={modal}
-        />
-        <DataTables name="ລາຍຮັບ" data={data} />
-      </Card>
-    </div>
+    <Card className="mt-3 shadow-sm" variant="">
+      <Forms
+        name="ລາຍການລາຍຮັບ"
+        price="ຈຳນວນເງິນ"
+        register={register}
+        handleSubmit={handleSubmit}
+        Submit={Submit}
+        modal={modal}
+        setValue={setValue}
+      />
+      <DataTables name="ລາຍຮັບ" data={data} />
+    </Card>
   );
 };
 
-export default Page;
+export default Income;

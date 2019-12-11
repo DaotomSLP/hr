@@ -24,16 +24,14 @@ const columns = [
 
 const DataTables = props => {
   return (
-    <div>
-      <DataTable
-        title={props.name}
-        columns={columns}
-        data={props.data}
-        defaultSortField="title"
-        pagination
-        selectableRows
-      />
-    </div>
+    <DataTable
+      title={props.name}
+      columns={columns}
+      data={props.data}
+      defaultSortField="title"
+      pagination
+      selectableRows
+    />
   );
 };
 
