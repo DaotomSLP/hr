@@ -1,4 +1,5 @@
 import Payment from "./Payment";
 import Income from "./Income";
+import Home from "./Home";
 
-export { Payment, Income };
+export { Payment, Income, Home };

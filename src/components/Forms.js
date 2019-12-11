@@ -12,10 +12,6 @@ export default function Forms(props) {
   const handleClose = () => {
     setMshow(false);
   };
-  const submit = () => {
-    alert("s");
-    props.register();
-  };
   return (
     <div className="header-card">
       <Button variant="primary px-3 mt-4 mx-4 mb-1" onClick={handleShow}>

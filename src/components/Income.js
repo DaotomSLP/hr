@@ -14,9 +14,7 @@ const usePay = () => {
       .collection("Income")
       .onSnapshot(snapshot => {
         const newPay = snapshot.docs.map(doc => ({
-          // id: doc.data.id
           ...doc.data()
-          // date: doc.date
         }));
         setPay(newPay);
       });
@@ -47,7 +45,7 @@ const Income = () => {
       });
   };
   return (
-    <Card className="mt-3 shadow-sm" variant="">
+    <Card className="mt-3 shadow" variant="">
       <Forms
         name="ລາຍການລາຍຮັບ"
         price="ຈຳນວນເງິນ"

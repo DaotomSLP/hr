@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Payment, Income } from "./components";
+import { Payment, Income, Home } from "./components";
 import { Container } from "react-bootstrap";
 
 export default () => {
@@ -8,7 +8,7 @@ export default () => {
     <Container>
       <Switch>
         <Route path="/income" component={Income} />
-        <Route exact path="/" component={Payment} />
+        <Route exact path="/" component={Home} />
         <Route path="/payment" component={Payment} />
       </Switch>
     </Container>
