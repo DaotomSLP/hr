@@ -14,6 +14,7 @@ const usePay = () => {
       .collection("Payment")
       .onSnapshot(snapshot => {
         const newPay = snapshot.docs.map(doc => ({
+          id: doc.id,
           ...doc.data()
         }));
         setPay(newPay);
@@ -24,26 +25,13 @@ const usePay = () => {
 
 const Payment = () => {
   const data = usePay().map(index => ({
+    id: index.id,
     name: index.name,
     price: index.price,
     date: index.date.toDate().toLocaleDateString()
   }));
   const { register, handleSubmit, setValue, reset } = useForm();
-  const [modal, setModal] = useState(false);
-  const Submit = values => {
-    var date = new Date();
-    firebases
-      .firestore()
-      .collection("Payment")
-      .add({ ...values, date })
-      .then(() => {
-        alert("ບັນທຶກສຳເລັດ");
-        reset({
-          name: "",
-          price: ""
-        });
-      });
-  };
+
   return (
     <Card className="mt-3 shadow" variant="">
       <Forms
@@ -51,11 +39,10 @@ const Payment = () => {
         price="ລາຄາ"
         register={register}
         handleSubmit={handleSubmit}
-        Submit={Submit}
-        modal={modal}
         setValue={setValue}
+        coll="Payment"
       />
-      <DataTables name="ລາຍຈ່າຍ" data={data} />
+      <DataTables coll="Payment" name="ລາຍຈ່າຍ" data={data} />
     </Card>
   );
 };
